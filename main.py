@@ -1,56 +1,24 @@
-# рівні доступа
+# Завдання 1
 
-class MyClass:
-    def __init__(self):
-        self._protected_attribute = 10 #захищенний атрибут
+#Рівень доступу приватний
+class User:
+    def __init__(self, name, age, email):
+        self._name = name
+        self.__age = age
+        self.__email = email
 
-    def _protected_method(self): #захищенний атрибут
-        print("Це захищений метод")
 
-class SubClass(MyClass):
-    def access_protected(self):
-        print(self._protected_attribute)
-        self._protected_method()
+    def get_name(self):
+        return self._name
 
-a = MyClass
-obj = SubClass()
-print(dir(a))
-print(obj._protected_attribute) #моветон
-obj.access_protected()
+    def get_age(self):
+        return self.__age
 
-#Рівень доступу Private (приватний)
-class MyClass:
-    def __init__(self):
-        self.__private_attribute = 20
+    def get_email(self):
+        return self.__email
 
-    def __private_method(self):
-        print("Це приватний метод")
 
-obj = MyClass()
-#print(obj.__private_attribute)
-#obj.__private_method()
-print(dir(obj))
-print(obj._MyClass__private_attribute)
-
-#приклад з банком
-class BankAccount:
-    def __init__(self, balance):
-        self._balance = balance
-
-    def deposit(self, amount):
-        self._balance += amount
-
-    def withdraw(self, amount):
-        if amount <= self._balance:
-            self._balance -= amount
-        else:
-            print("Недостатньо коштів на рахунку")
-
-    def get_balance(self):
-        return self._balance
-
-# Використання:
-account = BankAccount(1000)
-account.deposit(500)
-account.withdraw(200)
-print(account.get_balance())  # Результат: 1300
+user1 = User("Ivan", 19, "example@gmail. com")
+print(user1.get_name())
+print(user1.get_age())
+print(user1.get_email())
