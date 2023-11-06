@@ -22,3 +22,5 @@ user1 = User("Ivan", 19, "example@gmail. com")
 print(user1.get_name())
 print(user1.get_age())
 print(user1.get_email())
+print(user1)
+user
