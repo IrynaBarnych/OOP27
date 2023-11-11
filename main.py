@@ -49,7 +49,7 @@ class Taxi:
         self.__adress = adress_n
         self.__typ_auto = typ_auto_n
         self.__cost = cost_n
-        print(f"Додано нове замовлення: {str(self)}")
+        print(f"Додано нове замовлення: {self}")
 
 
 taxi1 = Taxi("Шевченко Т.Г.", "вул. Економічна, буд.5", "Lanos", 150)
