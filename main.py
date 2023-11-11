@@ -1,38 +1,43 @@
-# Завдання 4
-# Створіть клас "Комп'ютер", який має зберігати інформацію про процесор, ОЗУ та відеокарту. Застосуйте
-# інкапсуляцію для захисту цих даних від змін.
+# Завдання 1
+# Створіть систему управління замовленнями готелю. Кожне замовлення має містити інформацію
+# про клієнта, тип кімнати, кількість днів проживання та вартість. Реалізуйте методи для додавання замовлення,
+# зміни типу кімнати та кількості днів, а також видалення замовлення. Використайте інкапсуляцію для
+# захисту вартості від неправильних змін.
 
-class Computer:
-    def __init__(self, processor, OZY, videocard):
-        self._processor = processor
-        self._OZY = OZY
-        self._videocard = videocard
+class Hotel:
+    def __init__(self, client, typ_room, days, cost):
+        self.__client = client
+        self.__typ_room = typ_room
+        self.__days = days
+        self.__cost = cost
 
-    def get_processor(self):
-        return self._processor
+    def get_client (self):
+        return self.__client
 
-    def get_OZY(self):
-        return self._OZY
+    def get_typ_room(self):
+        return self.__typ_room
 
-    def set_OZY(self, value):
-        self._OZY = value
+    def get_days (self):
+        return self.__days
 
-    def get_videocard(self):
-        return self._videocard
+    def get_cost(self):
+        return self.__cost
 
-    def set_videocard(self, value):
-        self._videocard = value
+    def display_info(self):
+        print(f"Інформація про клієнта: {self.__client}")
+        print(f"Тип кімнати: {self.__typ_room} ")
+        print(f"Кількість днів: {self.__days}")
+        print(f"Вартість: {self.__cost} грн.")
 
+# Приклад використання
+hotel1 = Hotel("Шевченко Т.Г.", "економ", 2, 1500 )
+hotel1.display_info()
 
-computer = Computer("Intel i7", "16GB", "NVIDIA GeForce GTX 1080")
-print(f"Процесор: {computer.get_processor()}")
-print(f"ОЗУ: {computer.get_OZY()}")
-print(f"Відеокарта: {computer.get_videocard()}")
-
-computer.set_OZY("32GB")
-computer.set_videocard("NVIDIA GeForce RTX 3070")
-
-print(f"Оновлені дані: {computer.get_processor()}, {computer.get_OZY()}, {computer.get_videocard()}")
+# Використовуємо методи для отримання даних
+print(f"Інформація про клієнта: {hotel1.get_client()}")
+print(f"Тип кімнати: {hotel1.get_typ_room()}")
+print(f"Кількість днів: {hotel1.get_days()}")
+print(f"Вартість: {hotel1.get_cost()} грн.")
 
 
 
