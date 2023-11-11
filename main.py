@@ -48,7 +48,6 @@ class Hotel:
         self.__cost = cost_n
         print(f"Додано нове замовлення: {self}")
 
-
 hotel1 = Hotel("Шевченко Т.Г.", "економ", 2, 1500)
 print(hotel1)
 hotel2 = Hotel("Сковорода Г.С.", "студія", 5, 1800)
