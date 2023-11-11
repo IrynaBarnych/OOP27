@@ -19,7 +19,7 @@ class User:
         return self.__email
 
     def __str__(self):
-        return f"User: {self._name}, Age: {self.__age}, Email: {self.__email}"
+        return f"{self._name}, Age: {self.__age}, Email: {self.__email}"
 
 user1 = User("Ivan", 19, "example@gmail.com")
 print(user1.get_name())
