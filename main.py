@@ -1,72 +1,72 @@
-# Завдання 1
-# Створіть систему управління замовленнями готелю. Кожне замовлення має містити інформацію
-# про клієнта, тип кімнати, кількість днів проживання та вартість. Реалізуйте методи для додавання замовлення,
-# зміни типу кімнати та кількості днів, а також видалення замовлення. Використайте інкапсуляцію для
-# захисту вартості від неправильних змін.
+# Завдання 2
+# Розробіть систему управління замовленнями таксі. Кожне замовлення має містити інформацію про
+# клієнта, адресу, тип автомобіля та вартість. Реалізуйте методи для додавання нових замовлень, зміни адреси та
+# типу автомобіля, а також видалення замовлення.
+# Використайте інкапсуляцію для захисту вартості від неправильних змін.
 
-class Hotel:
-    def __init__(self, client, typ_room, days, cost):
+class Taxi:
+    def __init__(self, client, adress, typ_auto, cost):
         self.__client = client
-        self.__typ_room = typ_room
-        self.__days = days
+        self.__adress = adress
+        self.__typ_auto = typ_auto
         self.__cost = cost
 
     def get_client(self):
         return self.__client
 
-    def get_typ_room(self):
-        return self.__typ_room
+    def get_adress(self):
+        return self.__adress
 
-    def get_days(self):
-        return self.__days
+    def get_typ_auto(self):
+        return self.__typ_auto
 
     def get_cost(self):
         return self.__cost
 
     def __str__(self):
         return (f"Клієнт: {self.__client}. "
-                f"Тип кімнати: {self.__typ_room}. "
-                f"Кількість днів: {self.__days} дні."
-                f" Вартість: {self.__cost} грн./добу")
+                f"Адреса: {self.__adress}. "
+                f"Тип автомобіля: {self.__typ_auto}. "
+                f"Вартість: {self.__cost} грн.")
 
-    def change_typ_room(self, new_typ_room):
-        self.__typ_room = new_typ_room
+    def change_client(self, new_client):
+        self.__client = new_client
 
-    def change_days(self, new_days):
-        self.__days = new_days
+    def change_adress(self, new_adress):
+        self.__adress = new_adress
 
-    def change_cost(self, new_cost):
-        self.__cost = new_cost
+    def change_typ_auto(self, new_typ_auto):
+        self.__typ_auto = new_typ_auto
+
+    def change_typ_cost(self, new_typ_cost):
+        self.__cost = new_typ_cost
 
     def delete_order(self):
+        # Додайте логіку видалення замовлення, якщо потрібно
         print(f"Замовлення для клієнта {self.__client} видалено.")
 
-    def new_order(self, client_n, typ_room_n, days_n, cost_n):
+    def new_order(self, client_n, adress_n, typ_auto_n, cost_n):
         self.__client = client_n
-        self.__typ_room = typ_room_n
-        self.__days = days_n
+        self.__adress = adress_n
+        self.__typ_auto = typ_auto_n
         self.__cost = cost_n
-        print(f"Додано нове замовлення: {self}")
+        print(f"Додано нове замовлення: {str(self)}")
 
 
-hotel1 = Hotel("Шевченко Т.Г.", "економ", 2, 1500)
-print(hotel1)
-hotel2 = Hotel("Сковорода Г.С.", "студія", 5, 1800)
-print(hotel2)
+taxi1 = Taxi("Шевченко Т.Г.", "вул. Економічна, буд.5", "Lanos", 150)
+print(taxi1)
+taxi2 = Taxi("Сковорода Г.С.", "вул. Незалежності, буд. 20", "Audi", 180)
+print(taxi2)
+taxi2.change_adress("вул. Нова, буд. 10")
+taxi2.change_typ_auto("Mercedes")
+taxi2.change_typ_cost(200)
+print(taxi2)
 
-# Змінимо тип кімнати та вартість
-hotel1.change_typ_room("стандарт")
-hotel1.change_cost(2000)
-print(f"Оновлена інформація: {hotel1}.")
-hotel2.change_typ_room("люкс")
-hotel2.change_cost(10000)
-hotel2.change_days(5)
-print(f"Оновлена інформація: {hotel2}.")
+# Додайте змінене замовлення
+taxi2.new_order("Пчілка О.", "вул. Вишнева, буд. 10", "Mercedes", 200)
 
-hotel3 = Hotel("Пчілка О.", "стандарт", 5, 5000)
-hotel3.new_order("Пчілка О.", "люкс", 5, 5000)
+taxi2.delete_order()  # Додайте логіку видалення, якщо потрібно
 
-hotel1.delete_order()
 
 
 
