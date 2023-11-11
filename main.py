@@ -20,7 +20,6 @@ class BankAccount:
     def get_balance(self):
         return self._balance
 
-
 account = BankAccount(500)
 account.deposit(10000)
 account.withdraw(200)
