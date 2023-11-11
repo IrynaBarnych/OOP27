@@ -42,7 +42,6 @@ class Taxi:
         self.__cost = new_typ_cost
 
     def delete_order(self):
-        # Додайте логіку видалення замовлення, якщо потрібно
         print(f"Замовлення для клієнта {self.__client} видалено.")
 
     def new_order(self, client_n, adress_n, typ_auto_n, cost_n):
@@ -60,12 +59,11 @@ print(taxi2)
 taxi2.change_adress("вул. Нова, буд. 10")
 taxi2.change_typ_auto("Mercedes")
 taxi2.change_typ_cost(200)
-print(taxi2)
+print(f"Оновлена інформація: {taxi2}.")
 
-# Додайте змінене замовлення
 taxi2.new_order("Пчілка О.", "вул. Вишнева, буд. 10", "Mercedes", 200)
 
-taxi2.delete_order()  # Додайте логіку видалення, якщо потрібно
+taxi1.delete_order()
 
 
 
