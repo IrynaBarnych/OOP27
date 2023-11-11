@@ -1,29 +1,34 @@
-# Завдання 2
-# Реалізуйте клас "Кошик для покупок" з можливістю додавання товарів та підрахунку загальної вартості.
-# Застосуйте інкапсуляцію для забезпечення правильності обробки даних.
+# Завдання 3
+# Створіть клас "Електронний Гаманець" додавши можливість видаляти та додавати гроші, а також перевіряти
+# баланс.
 
-class ShoppingCart:
-    def __init__(self):
-        self.__items = {}
+class BankAccount:
+    def __init__(self, balance):
+        self._balance = balance
 
-    def add_items(self, product, quanity, price):
-        if product not in self.__items:
-            self.__items[product] = {'quanity': quanity, 'price': price}
+    def deposit(self, amount):
+        self._balance += amount
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Сума виведення повинна бути більше нуля.")
+        elif amount <= self._balance:
+            self._balance -= amount
         else:
-            self.__items[product]["quanity"] += quanity
+            print("Недостатньо коштів на рахунку")
 
-    def calculate_total(self):
-        total = 0
-        for product, data in self.__items.items():
-            total += data["quanity"] * data["price"]
-        return total
-    def display_items(self):
-        for product, data in self.__items.items():
-            print(f"товар: {product} - {data['quanity']} шт. ціна - {data['price']} грн./шт.")
+    def get_balance(self):
+        return self._balance
 
-cart = ShoppingCart()
-cart.add_items("телефон", 2, 100)
-cart.add_items("книга", 3, 200)
-cart.display_items()
-print("Занальна вартість товару", cart.calculate_total(),"грн.")
+
+account = BankAccount(500)
+account.deposit(10000)
+account.withdraw(200)
+
+print(f"Баланс: {account.get_balance()} грн.")
+account.deposit(100)
+print(f"Депозит: {account.get_balance()} грн.")
+account.withdraw(50)
+print(f"Баланс після виведення: {account.get_balance()} грн.")
+
 
