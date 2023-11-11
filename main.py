@@ -31,4 +31,17 @@ print(f"Депозит: {account.get_balance()} грн.")
 account.withdraw(50)
 print(f"Баланс після виведення: {account.get_balance()} грн.")
 
+account1 = BankAccount(500)
+account1.deposit(1000)
+account1.withdraw(300)
+print(f"Баланс: {account1.get_balance()} грн.")
+account1.deposit(100)
+print(f"Депозит: {account1.get_balance()} грн.")
+account1.withdraw(50)
+print(f"Баланс після зняття: {account1.get_balance()} грн.")
+account1.withdraw(200)
+print(f"Баланс після всіх операцій: {account1.get_balance()} грн.")
+
+
+
 
