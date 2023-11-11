@@ -11,33 +11,53 @@ class Hotel:
         self.__days = days
         self.__cost = cost
 
-    def get_client (self):
+    def get_client(self):
         return self.__client
 
     def get_typ_room(self):
         return self.__typ_room
 
-    def get_days (self):
+    def get_days(self):
         return self.__days
 
     def get_cost(self):
         return self.__cost
 
-    def display_info(self):
-        print(f"Інформація про клієнта: {self.__client}")
-        print(f"Тип кімнати: {self.__typ_room} ")
-        print(f"Кількість днів: {self.__days}")
-        print(f"Вартість: {self.__cost} грн.")
+    def __str__(self):
+        return (f"Клієнт: {self.__client}. "
+                f"Тип кімнати: {self.__typ_room}. "
+                f"Кількість днів: {self.__days} дні."
+                f" Вартість: {self.__cost} грн./добу")
 
-# Приклад використання
-hotel1 = Hotel("Шевченко Т.Г.", "економ", 2, 1500 )
-hotel1.display_info()
+    def change_typ_room(self, new_typ_room):
+        self.__typ_room = new_typ_room
 
-# Використовуємо методи для отримання даних
-print(f"Інформація про клієнта: {hotel1.get_client()}")
-print(f"Тип кімнати: {hotel1.get_typ_room()}")
-print(f"Кількість днів: {hotel1.get_days()}")
-print(f"Вартість: {hotel1.get_cost()} грн.")
+    def change_days(self, new_days):
+        self.__days = new_days
+
+    def change_cost(self, new_cost):
+        self.__cost = new_cost
+
+    def delete_order(self):
+        print(f"Замовлення для клієнта {self.__client} видалено.")
+
+
+hotel1 = Hotel("Шевченко Т.Г.", "економ", 2, 1500)
+print(hotel1)
+hotel2 = Hotel("Сковорода Г.С.", "студія", 5, 1800)
+print(hotel2)
+
+# Змінимо тип кімнати та вартість
+hotel1.change_typ_room("стандарт")
+hotel1.change_cost(2000)
+print(f"Оновлена інформація: {hotel1}.")
+hotel2.change_typ_room("люкс")
+hotel2.change_cost(10000)
+hotel2.change_days(5)
+print(f"Оновлена інформація: {hotel2}.")
+
+hotel1.delete_order()
+
 
 
 
