@@ -41,6 +41,13 @@ class Hotel:
     def delete_order(self):
         print(f"Замовлення для клієнта {self.__client} видалено.")
 
+    def new_order(self, client_n, typ_room_n, days_n, cost_n):
+        self.__client = client_n
+        self.__typ_room = typ_room_n
+        self.__days = days_n
+        self.__cost = cost_n
+        print(f"Додано нове замовлення: {self}")
+
 
 hotel1 = Hotel("Шевченко Т.Г.", "економ", 2, 1500)
 print(hotel1)
@@ -56,8 +63,10 @@ hotel2.change_cost(10000)
 hotel2.change_days(5)
 print(f"Оновлена інформація: {hotel2}.")
 
-hotel1.delete_order()
+hotel3 = Hotel("Пчілка О.", "стандарт", 5, 5000)
+hotel3.new_order("Пчілка О.", "люкс", 5, 5000)
 
+hotel1.delete_order()
 
 
 
