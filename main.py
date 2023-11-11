@@ -29,7 +29,6 @@ print(f"Процесор: {computer.get_processor()}")
 print(f"ОЗУ: {computer.get_OZY()}")
 print(f"Відеокарта: {computer.get_videocard()}")
 
-
 computer.set_OZY("32GB")
 computer.set_videocard("NVIDIA GeForce RTX 3070")
 
