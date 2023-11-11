@@ -25,5 +25,5 @@ cart = ShoppingCart()
 cart.add_items("телефон", 2, 100)
 cart.add_items("книга", 3, 200)
 cart.display_items()
-print("Занальна вартість товару", cart.calculate_total(),"грн.")
+print("Занальна вартість товару", cart.calculate_total(), "грн.")
 
